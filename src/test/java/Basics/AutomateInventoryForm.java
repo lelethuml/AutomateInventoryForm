@@ -41,14 +41,14 @@ public class AutomateInventoryForm
     //click Learning materials
     driver.findElement(By.xpath("//*[@id=\"app-root\"]/nav/div[1]/div[2]/div[1]/div/button[2]")).click();
 
+    //Verify that the user is on the Web Automation Advance page
+
     //Click Web Automation Advance
     driver.findElement(By.id("tab-btn-web")).click(); //web automation advance page (Automation category)
 
-    //Verify that the user is on the Web Automation Advance page
-
 
     //Click Inventory form requirements dropdown
-    driver.findElement(By.xpath("//*[@id=\"assessment-instructions\"]/summary")).click();
+    driver.findElement(By.xpath("//*[@id=\"assessment-instructions\"]/summary")).click(); //not done
 
     Thread.sleep(2000);
     //device type dropdown
