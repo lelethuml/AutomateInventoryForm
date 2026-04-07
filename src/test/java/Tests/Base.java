@@ -19,4 +19,7 @@ public class Base {
     DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
     PracticePage practicePage = PageFactory.initElements(driver, PracticePage.class);
 
+
 }
+
+

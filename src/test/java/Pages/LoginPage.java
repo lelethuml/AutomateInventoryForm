@@ -35,13 +35,16 @@ public class LoginPage {
     public void verifyLoginPageIsDisplayed() {
         verifyLoginHeading.isDisplayed();
     }
+
     public void enterEmail(String email) {                                                                               //Initially on "Sendkeys" we had an exact email, we have chnages that because we want to make the method reuasble. Now we can pass any email as an argument when we call this method to the NdosiTests class in a method userEnterEmailTest
         emailField.sendKeys(email);
     }
     public void enterPassword(String password) {                                                                          // same as in email
+
         passwordField.sendKeys(password);
     }
     public void clickSubmit(){
+
         submitButton.click();
     }
 

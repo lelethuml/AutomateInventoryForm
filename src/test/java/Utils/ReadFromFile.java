@@ -7,7 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 
 public class ReadFromFile {
-    private static String testData = System.getProperty("user.dir")+"/src/test/java/TestData/TestData_040526.xlsx";
+        private static String testData = System.getProperty("user.dir")+"/src/test/java/TestData/TestData_040526.xlsx";
 
     public static DataFormatter dataFormatter = new DataFormatter();
 
