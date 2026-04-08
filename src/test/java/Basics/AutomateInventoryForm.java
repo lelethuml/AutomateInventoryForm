@@ -26,7 +26,7 @@ public class AutomateInventoryForm
         driver.findElement(By.id("login-password")).sendKeys("Letsdoit!");
         driver.findElement(By.id("login-submit")).click();
 
-    // ✅ WAIT for navigation to dashboard
+    // WAIT for navigation to dashboard
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // here we creating an object "wait" of WebDriverWait class and we are passing driver and duration as parameters
     wait.until(ExpectedConditions.urlContains("dashboard"));  //dashboard page
 
@@ -56,7 +56,7 @@ public class AutomateInventoryForm
 //    Select select = new Select(dropdown);
 //    select.selectByVisibleText("Phone");
 
-    // ✅ Use the helper method instead of repeating code
+    // Use the helper method instead of repeating code
     selectDropdownOption("deviceType", "Phone");
     selectDropdownOption("brand", "Apple");
 

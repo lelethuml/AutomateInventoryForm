@@ -56,12 +56,15 @@ public class PracticePage extends BasePage{
     @FindBy(id="view-history-btn")
     WebElement viewHistoryButton;
 
-    @FindBy(id="close-invoice-history-btn")
-    WebElement closeInvoiceHistoryButton;
+    @FindBy(css = "button[id^='view-invoice-']")
+    WebElement viewInvoiceButton;
+
+   // @FindBy(id="close-invoice-history-btn")
+    //WebElement closeInvoiceHistoryButton;
 
     //constructor
     public PracticePage(WebDriver driver) {
-        super(driver); // 🔥 passes driver to BasePage
+        super(driver); //  passes driver to BasePage
         PageFactory.initElements(driver, this);
     }
 
@@ -122,14 +125,22 @@ public class PracticePage extends BasePage{
         purchaseButton.click();
     }
 
+    // ✅ UPDATED METHOD WITH WAIT
     public void clickViewHistoryButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(viewHistoryButton));
         viewHistoryButton.click();
     }
-
-    public void waitForButtonVisibility() {
+    public void viewInvoiceHistory() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(viewHistoryButton));
+        wait.until(ExpectedConditions.elementToBeClickable(viewInvoiceButton));
+        viewInvoiceButton.click();
     }
+
+//    public void waitForButtonVisibility() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOf(viewHistoryButton));
+//    }
 
 //    public void closeInvoiceHistoryButton(){
 //        closeInvoiceHistoryButton.click();

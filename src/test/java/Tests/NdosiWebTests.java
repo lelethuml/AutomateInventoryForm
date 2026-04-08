@@ -2,6 +2,7 @@ package Tests;
 
 import Utils.ReadFromFile;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
@@ -46,6 +47,7 @@ public class NdosiWebTests extends Base{
         dashboardPage.clickLearnButton();
 
     }
+
     @Test (dependsOnMethods = "clickLearnButton")
     public void clickLearningMaterialsButton(){
         dashboardPage.clickLearningMaterialsButton();
@@ -63,29 +65,24 @@ public class NdosiWebTests extends Base{
         //  WAIT FOR THE FORM TO LOAD BEFORE INTERACTING WITH IT
         practicePage.waitForFormToLoad();
 
-        practicePage.selectDeviceType("Phone");
-        practicePage.selectBrand("Apple");
-        practicePage.selectStorage128();
-        practicePage.selectColor("Black");
-        practicePage.enterQuantity("2");
-        practicePage.enterAddress("28 Albert str");
-
-        // VERIFY PREVIEW
-        //String preview = practicePage.getPreviewText();
-        //Assert.assertTrue(preview.contains("Apple"));
-       // Assert.assertTrue(preview.contains("128GB"));
-
-        practicePage.clickNext();
-
-        practicePage.shippingMethod("Express (+R25)");
-        practicePage.warrantyOption("1 Year (+R50)");
-        practicePage.setDiscountCode("10");
-        practicePage.clickPurchaseButton();
-        practicePage.clickViewHistoryButton();
-        //practicePage.closeInvoiceHistoryButton();
+        practicePage.selectDeviceType(ReadFromFile.deviceType);
+        practicePage.selectBrand(ReadFromFile.brand);
+        practicePage.selectStorage128(); // still hardcoded for now
+        practicePage.selectColor(ReadFromFile.color);
+        practicePage.enterQuantity(ReadFromFile.quantity);
+        practicePage.enterAddress(ReadFromFile.address);
+        practicePage.shippingMethod(ReadFromFile.shipping);
+        practicePage.warrantyOption(ReadFromFile.warranty);
+        practicePage.setDiscountCode(ReadFromFile.discount);
 
 
 
     }
 
+    //close the browser after the test is done
+
+    @AfterTest
+    public void closeBrowser(){
+        driver.quit();
+    }
 }
