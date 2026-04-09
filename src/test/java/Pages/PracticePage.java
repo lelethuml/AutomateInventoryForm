@@ -78,7 +78,7 @@ public class PracticePage extends BasePage{
     }
 
     public void selectDeviceType(String value) {
-        new Select(deviceTypeDropdown).selectByVisibleText(value);
+        selectDropdownByText(deviceTypeDropdown, value);
     }
 
     public void selectBrand(String value) {
@@ -107,10 +107,16 @@ public class PracticePage extends BasePage{
 //    }
 
     public void clickNext() {
+        waitForClickability(nextButton);
         nextButton.click();
+    }
+    public void waitForExtrasSection() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(shippingExpress));
     }
 
     public void shippingMethod(String method) {
+        waitForClickability(shippingExpress);
         shippingExpress.click();
     }
 

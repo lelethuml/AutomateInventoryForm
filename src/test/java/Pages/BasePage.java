@@ -22,4 +22,9 @@ public class BasePage {
         select.selectByVisibleText(text);
     }
 
+    public void waitForClickability(WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(element));
+    }
+
 }

@@ -13,12 +13,10 @@ public class DashboardPage {
 
     WebDriver driver;
 
-
     //constructor
     public DashboardPage(WebDriver driver){
         this.driver=driver;
     }
-
 
     // verify that the dashboard page is displayed by checking the URL contains "dashboard"
     public void verifyDashboardPageIsDisplayed() {
@@ -42,6 +40,7 @@ public class DashboardPage {
     }
 
     //had to add explicit wait as it fails because the element is not available yet
+
     public void clickLearningMaterialsButton(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -51,8 +50,6 @@ public class DashboardPage {
         wait.until(ExpectedConditions.elementToBeClickable(learningMaterialsButton));
         learningMaterialsButton.click();
     }
-
-
 
 
 }
