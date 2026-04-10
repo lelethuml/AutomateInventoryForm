@@ -86,7 +86,6 @@ public class NdosiWebTests extends Base{
         takeScreenshots.takeSnapshots(driver, "InventoryFormFilledOutScreenshot");
 
 
-
     }
     @Test (dependsOnMethods = "fillInventoryForm")
     public void clickConfirmPurchaseButton() {
@@ -96,13 +95,19 @@ public class NdosiWebTests extends Base{
     @Test (dependsOnMethods = "clickConfirmPurchaseButton")
     public void clickViewInvoice() {
         practicePage.clickViewHistoryButton();
+
+    }
+
+    @Test (dependsOnMethods = "clickViewInvoice")
+    public void clickviewInvoiceHistory() {
+        practicePage.viewInvoiceHistory();
+        //takeScreenshots.takeSnapshots(driver, "Invoice");
     }
 
 
 
-    //close the browser
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }
+//    @AfterTest
+//    public void closeBrowser(){
+//        driver.quit();
+//  }
 }

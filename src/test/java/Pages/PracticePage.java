@@ -139,30 +139,18 @@ public class PracticePage extends BasePage{
         purchaseButton.click();
     }
 
-    // ✅ UPDATED METHOD WITH WAIT
+
     public void clickViewHistoryButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(viewHistoryButton));
         viewHistoryButton.click();
     }
+
     public void viewInvoiceHistory() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(viewInvoiceButton));
         viewInvoiceButton.click();
     }
-
-//    public void waitForButtonVisibility() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOf(viewHistoryButton));
-//    }
-
-//    public void closeInvoiceHistoryButton(){
-//        closeInvoiceHistoryButton.click();
-//    }
-
-
-
-
 
 
 }
