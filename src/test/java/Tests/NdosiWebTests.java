@@ -17,7 +17,6 @@ public class NdosiWebTests extends Base{
     @Test (dependsOnMethods = "verifyHomePageIsDisplayedTest")
     public void clickLoginButton(){
         homePage.clickLoginButton();
-       // takeScreenshots.takeSnapshots(driver, "");
     }
 
     @Test (dependsOnMethods = "clickLoginButton")
@@ -40,7 +39,6 @@ public class NdosiWebTests extends Base{
         loginPage.clickSubmit();
     }
 
-
     @Test (dependsOnMethods = "userClicksLoginButton")
     public void verifyDashboardPageIsDisplayed(){
         dashboardPage.verifyDashboardPageIsDisplayed();
@@ -50,7 +48,6 @@ public class NdosiWebTests extends Base{
     @Test (dependsOnMethods = "verifyDashboardPageIsDisplayed")
     public void clickLearnButton() {
         dashboardPage.clickLearnButton();
-
     }
 
     @Test (dependsOnMethods = "clickLearnButton")
@@ -66,7 +63,7 @@ public class NdosiWebTests extends Base{
 
     }
 
-    // This test fills out the inventory form after clicking the "Web Auto Advance" button. It waits for the form to load, interacts with various form elements to select device type, brand, storage, color, quantity, and address. It also includes commented-out assertions to verify the preview text before clicking the "Next" button to proceed.
+    // This test fills out the inventory form.
     @Test(dependsOnMethods = "clickWebAutoAdvanceButton")
     public void fillInventoryForm() {
 
@@ -84,12 +81,26 @@ public class NdosiWebTests extends Base{
         practicePage.shippingMethod(ReadFromFile.shipping);
         practicePage.warrantyOption(ReadFromFile.warranty);
         practicePage.setDiscountCode(ReadFromFile.discount);
+
+
         takeScreenshots.takeSnapshots(driver, "InventoryFormFilledOutScreenshot");
 
+
+
+    }
+    @Test (dependsOnMethods = "fillInventoryForm")
+    public void clickConfirmPurchaseButton() {
+        practicePage.clickPurchaseButton();
     }
 
-    //close the browser after the test is done
+    @Test (dependsOnMethods = "clickConfirmPurchaseButton")
+    public void clickViewInvoice() {
+        practicePage.clickViewHistoryButton();
+    }
 
+
+
+    //close the browser
     @AfterTest
     public void closeBrowser(){
         driver.quit();

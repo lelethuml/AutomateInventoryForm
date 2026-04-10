@@ -9,6 +9,8 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+
 public class DashboardPage {
 
     WebDriver driver;
@@ -21,7 +23,7 @@ public class DashboardPage {
     // verify that the dashboard page is displayed by checking the URL contains "dashboard"
     public void verifyDashboardPageIsDisplayed() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.urlContains("dashboard"));
 
         String currentUrl = driver.getCurrentUrl();
@@ -36,13 +38,14 @@ public class DashboardPage {
     WebElement learningMaterialsButton;
 
     public void clickLearnButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(learnButton));
         learnButton.click();
     }
 
     //had to add explicit wait as it fails because the element is not available yet
 
     public void clickLearningMaterialsButton(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         wait.until(ExpectedConditions.elementToBeClickable(learnButton));
         learnButton.click();

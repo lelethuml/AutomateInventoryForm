@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+
 public class PracticePage extends BasePage{
     //WebDriver driver;
 
@@ -63,9 +65,13 @@ public class PracticePage extends BasePage{
     //WebElement closeInvoiceHistoryButton;
 
     //constructor
-    public PracticePage(WebDriver driver) {
-        super(driver); //  passes driver to BasePage
-        PageFactory.initElements(driver, this);
+//    public PracticePage(WebDriver driver) {
+//        super(driver); //  passes driver to BasePage
+//        PageFactory.initElements(driver, this);
+//    }
+    //constructor
+    public PracticePage(WebDriver driver){
+        this.driver=driver;
     }
 
     public void waitForFormToLoad() {
@@ -74,10 +80,12 @@ public class PracticePage extends BasePage{
     }
 
     public void clickWebAutoAdvanceButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(webAutoAdvanceButton));
         webAutoAdvanceButton.click();
     }
 
     public void selectDeviceType(String value) {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(deviceTypeDropdown));
         selectDropdownByText(deviceTypeDropdown, value);
     }
 
