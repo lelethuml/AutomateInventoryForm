@@ -81,10 +81,7 @@ public class NdosiWebTests extends Base{
         practicePage.shippingMethod(ReadFromFile.shipping);
         practicePage.warrantyOption(ReadFromFile.warranty);
         practicePage.setDiscountCode(ReadFromFile.discount);
-
-
         takeScreenshots.takeSnapshots(driver, "InventoryFormFilledOutScreenshot");
-
 
     }
     @Test (dependsOnMethods = "fillInventoryForm")
@@ -103,7 +100,6 @@ public class NdosiWebTests extends Base{
         practicePage.viewInvoiceHistory();
         //takeScreenshots.takeSnapshots(driver, "Invoice");
     }
-
 
 
 //    @AfterTest

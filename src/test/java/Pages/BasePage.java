@@ -10,10 +10,7 @@ import java.time.Duration;
 
 public class BasePage {
     WebDriver driver;
-//
-//    public BasePage(WebDriver driver) {
-//        this.driver = driver;
-//    }
+
 
     public void selectDropdownByText(WebElement element, String text) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

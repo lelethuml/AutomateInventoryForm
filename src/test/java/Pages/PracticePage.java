@@ -61,15 +61,8 @@ public class PracticePage extends BasePage{
     @FindBy(css = "button[id^='view-invoice-']")
     WebElement viewInvoiceButton;
 
-   // @FindBy(id="close-invoice-history-btn")
-    //WebElement closeInvoiceHistoryButton;
 
-    //constructor
-//    public PracticePage(WebDriver driver) {
-//        super(driver); //  passes driver to BasePage
-//        PageFactory.initElements(driver, this);
-//    }
-    //constructor
+
     public PracticePage(WebDriver driver){
         this.driver=driver;
     }
@@ -110,10 +103,6 @@ public class PracticePage extends BasePage{
         addressField.sendKeys(address);
     }
 
-//    public String getPreviewText() {
-//        return previewCard.getText();
-//    }
-
     public void clickNext() {
         waitForClickability(nextButton);
         nextButton.click();
@@ -136,6 +125,7 @@ public class PracticePage extends BasePage{
     }
 
     public void clickPurchaseButton() {
+
         purchaseButton.click();
     }
 
